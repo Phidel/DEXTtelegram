@@ -51,7 +51,6 @@ begin
   Application.UpdateFormatSettings := False;
   FormatSettings.DecimalSeparator := '.';
   utc_offset := OffsetUTC2;
-//  FLoading := true;
 
   MainForm.Caption := AppName;
 
