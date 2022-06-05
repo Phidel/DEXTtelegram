@@ -2,7 +2,7 @@ object MainForm: TMainForm
   Left = 0
   Top = 0
   Caption = 'DEXT telegram'
-  ClientHeight = 392
+  ClientHeight = 424
   ClientWidth = 748
   Color = clBtnFace
   Font.Charset = RUSSIAN_CHARSET
@@ -23,8 +23,8 @@ object MainForm: TMainForm
     Align = alTop
     TabOrder = 0
     object StartButton: TsButton
-      Left = 12
-      Top = 8
+      Left = 4
+      Top = 9
       Width = 75
       Height = 43
       Caption = #1057#1090#1072#1088#1090
@@ -81,7 +81,7 @@ object MainForm: TMainForm
   end
   object StatusBar1: TsStatusBar
     Left = 0
-    Top = 373
+    Top = 405
     Width = 748
     Height = 19
     Panels = <
@@ -99,7 +99,7 @@ object MainForm: TMainForm
     Left = 0
     Top = 58
     Width = 748
-    Height = 315
+    Height = 347
     ActivePage = tsMain
     Align = alClient
     TabHeight = 28
@@ -113,18 +113,18 @@ object MainForm: TMainForm
         Left = 0
         Top = 0
         Width = 740
-        Height = 277
+        Height = 309
         Align = alClient
-        ScrollBars = ssVertical
+        ScrollBars = ssBoth
         TabOrder = 0
-        ExplicitTop = -2
+        WordWrap = False
       end
     end
     object tsSettings: TsTabSheet
       Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
       object TestTelegramButton: TsButton
-        Left = 403
-        Top = 54
+        Left = 18
+        Top = 249
         Width = 54
         Height = 25
         Caption = '_Test'
@@ -146,8 +146,8 @@ object MainForm: TMainForm
         Caption = #1060#1080#1083#1100#1090#1088
         TabOrder = 1
         object FilterGreenCheckBox: TsCheckBox
-          Left = 21
-          Top = 35
+          Left = 20
+          Top = 34
           Width = 192
           Height = 20
           Caption = #1058#1086#1083#1100#1082#1086' '#1089' '#1079#1077#1083#1077#1085#1099#1084' '#1096#1072#1088#1080#1082#1086#1084
@@ -162,6 +162,32 @@ object MainForm: TMainForm
           TabOrder = 0
         end
       end
+      object AutoRestartCheckBox: TsCheckBox
+        Left = 325
+        Top = 28
+        Width = 230
+        Height = 20
+        Caption = #1055#1077#1088#1077#1087#1086#1076#1082#1083#1102#1095#1077#1085#1080#1077', '#1082#1072#1078#1076#1099#1077' ... '#1089#1077#1082
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+      end
+      object SecsEdit: TsSpinEdit
+        Left = 349
+        Top = 54
+        Width = 121
+        Height = 24
+        TabOrder = 3
+        Text = '300'
+        OnChange = SecsEditChange
+        MaxValue = 0
+        MinValue = 0
+        Value = 300
+      end
     end
   end
   object PropStorageEh1: TPropStorageEh
@@ -171,11 +197,13 @@ object MainForm: TMainForm
       '<P>.PixelsPerInch'
       '<P>.Top'
       '<P>.Width'
+      'sPageControl1.tsSettings.AutoRestartCheckBox.<P>.Checked'
       
         'sPageControl1.tsSettings.FilterGroup.FilterGreenCheckBox.<P>.Che' +
         'cked'
+      'sPageControl1.tsSettings.SecsEdit.<P>.Value'
       'TopPanel.PhoneEdit.<P>.Text')
-    Left = 367
+    Left = 368
     Top = 9
   end
   object sSkinProvider1: TsSkinProvider
@@ -187,8 +215,8 @@ object MainForm: TMainForm
     SkinData.SkinManager = sSkinManager1
     SkinData.SkinSection = 'FORM'
     TitleButtons = <>
-    Left = 378
-    Top = 178
+    Left = 454
+    Top = 249
   end
   object sSkinManager1: TsSkinManager
     ButtonsOptions.OldGlyphsMode = False
@@ -4476,13 +4504,19 @@ object MainForm: TMainForm
     OnException = mTelegramException
     Telegram.API.ApiHash = '8a983cb299e79fd42abb8a9a9f5b86f6'
     Telegram.API.ApiId = '4394625'
-    Telegram.Parameters.ApplicationVersion = '1.0'
+    Telegram.Parameters.ApplicationVersion = '1.1'
     Telegram.Parameters.DeviceModel = 'Desktop'
     Telegram.Parameters.LanguageCode = 'en'
     Telegram.Parameters.SystemVersion = 'Windows'
     Telegram.ErrorsLevel = tvbErrors
     Telegram.PhoneNumber = '+380'
-    Left = 274
-    Top = 169
+    Left = 267
+    Top = 168
+  end
+  object Timer1: TTimer
+    Interval = 120000
+    OnTimer = Timer1Timer
+    Left = 519
+    Top = 152
   end
 end
