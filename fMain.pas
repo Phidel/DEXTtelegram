@@ -153,7 +153,7 @@ begin
   xLog('- ' + Status);
   if Status = 'authorizationStateReady' then begin
     xLog('- pass');
-    // mTelegram.GetChats(MaxInt, 0, 100);
+    //mTelegram.GetChats(MaxInt, 0, 100);
   end;
 end;
 
@@ -165,10 +165,10 @@ begin
   if tStatus = 'connectionStateReady' then begin
     xLog('ok');
     FLoading := False;
-    // mTelegram.GetChats(MaxInt, 0, 100);
+    mTelegram.GetChats(MaxInt, 0, 100);
 
-    // mTelegram.GetChat(InputChannel1ID); // ?
-    // mTelegram.GetChat(InputChannel2ID);
+    mTelegram.GetChat(InputChannel1ID);
+    mTelegram.GetChat(InputChannel2ID);
     // mTelegram.GetChat('-1001393193695');
     // mTelegram.SendTextMessage('me', 'Hi');
   end;
@@ -334,7 +334,7 @@ begin
   // exit;
 
   if (ChatId <> InputChannel1ID) and (ChatId <> InputChannel2ID) and (ChatId <> AnalyzerBotID) then begin
-    Log('* ' + ChatId + ' ' + Copy(Text, 1, 30)); // debug можно убрать
+    // Log('* ' + ChatId + ' ' + Copy(Text, 1, 30)); // debug можно убрать
     exit;
   end;
 
